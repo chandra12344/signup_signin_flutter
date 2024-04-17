@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:untitled/view/chat_screen.dart';
 import 'package:untitled/view/login_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -77,15 +78,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             Row(
               children: [
-                Spacer(),
+                const Spacer(),
                 ElevatedButton.icon(
                   onPressed: () {
-                    print('Button pressed');
+                    Get.to(const ChatScreen());
                   },
                   icon: const Icon(Icons.chat),
                   label: Text('Chat with Me'),
                 ),
-                Spacer(),
+                const Spacer(),
                 ElevatedButton.icon(
                   onPressed: () async{
                     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -93,7 +94,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Get.off(const LoginScreen());
                   },
                   icon: const Icon(Icons.logout),
-                  label: Text('Logout'),
+                  label: const Text('Logout'),
                 ),
                 const Spacer(),
               ],
